@@ -45,9 +45,9 @@ jobs:
       - name: Prepare DBT project for deployment
         if: steps.prerun.outputs.result == 'pex-deploy'
         run: |
-          python -m pip3 install pip3 --upgrade
+          python -m pip install pip --upgrade
           cd project-repo
-          pip3 install . --upgrade --upgrade-strategy eager
+          pip install . --upgrade --upgrade-strategy eager
           dagster-dbt project prepare-and-package --file dagster_and_dbt/defs/project.py
         shell: bash
 
